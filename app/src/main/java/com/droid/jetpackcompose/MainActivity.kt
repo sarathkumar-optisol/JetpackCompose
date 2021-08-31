@@ -24,15 +24,17 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Column {
-                Text(text = "Hello")
+            Column(Modifier.background(Color.Green)
+                .fillMaxHeight(1f)
+                .fillMaxWidth(1f)
+                .padding(16.dp)){
+                Text(text = "Hello", modifier = Modifier
+                    .background(Color.Red)
+                    .clickable {
+                        Toast.makeText(this@MainActivity,"Clicked",Toast.LENGTH_SHORT).show()
+                    })
                 Text(text = "World")
             }
-
-//            Row {
-//                Text(text = "Hello")
-//                Text(text = "World")
-//            }
         }
     }
 }
